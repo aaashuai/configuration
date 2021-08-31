@@ -1,0 +1,62 @@
+let mapleader = " "
+
+" ======== plugins ==========
+set easymotion
+set surround
+set multiple-cursors
+set incsearch
+set rnu
+set nu
+set NERDTree
+
+" ======= key binding =========
+inoremap jk <Esc>`^
+inoremap <leader>w <Esc>:w<cr>
+noremap <leader>w :w<cr>
+
+" Tabs
+nnoremap [b <Action>(PreviousTab)
+nnoremap ]b <Action>(NextTab)
+
+" h left, l right, k up, j down
+nmap <leader>h <c-w>h
+nmap <leader>l <c-w>l
+nmap <leader>k <c-w>k
+nmap <leader>j <c-w>j
+
+" Navigation
+nmap <leader>h <Action>(Back)
+nmap <leader>l <Action>(Forward)
+nmap <leader>L <Action>(RecentLocations)
+nmap <leader>g <Action>(GotoDeclaration)
+nmap <leader>u <Action>(FindUsages)
+nmap <leader>f <Action>(GotoFile)
+nmap <leader>C <Action>(GotoClass)
+nmap <leader>s <Action>(GotoSymbol)
+
+" Errors
+nmap <leader>x <Action>(GotoNextError)
+nmap <leader>X <Action>(GotoPreviousError)
+
+" Terminal
+nmap <leader>T <Action>(ActivateTerminalToolWindow)
+
+" Building, Running and Debugging
+nmap <leader>r <Action>(Run)
+nmap <leader>cr <Action>(ContextRun)
+nmap <leader>d <Action>(Debug)
+nmap <leader>cd <Action>(ContextDebug)
+
+" easymotion
+nmap ss <Plug>(easymotion-s2)
+
+" multi cursor
+nmap <A-n> <C-n>
+
+" breakpoint
+map <leader>b <Action>(ToggleLineBreakpoint)
+
+" rename
+map <leader>r <Action>(RenameElement)
+
+
