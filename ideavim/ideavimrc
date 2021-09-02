@@ -8,11 +8,11 @@ set incsearch
 set rnu
 set nu
 set NERDTree
+set timeoutlen =190
 
 " ======= key binding =========
 inoremap jk <Esc>`^
-inoremap <leader>w <Esc>:w<cr>
-noremap <leader>w :w<cr>
+noremap ,w :w<cr>
 
 " Tabs
 nnoremap [b <Action>(PreviousTab)
@@ -42,10 +42,12 @@ nmap <leader>X <Action>(GotoPreviousError)
 nmap <leader>T <Action>(ActivateTerminalToolWindow)
 
 " Building, Running and Debugging
-nmap <leader>r <Action>(Run)
-nmap <leader>cr <Action>(ContextRun)
-nmap <leader>d <Action>(Debug)
-nmap <leader>cd <Action>(ContextDebug)
+nmap <leader>ar <Action>(Run)
+nmap <leader>r <Action>(ContextRun)
+nmap <leader>ad <Action>(Debug)
+nmap <leader>d <Action>(ContextDebug)
+nmap <leader>i <Action>(StepInto)
+nmap <leader>o <Action>(StepOver)
 
 " easymotion
 nmap ss <Plug>(easymotion-s2)
