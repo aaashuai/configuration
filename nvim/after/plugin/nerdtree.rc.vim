@@ -1,5 +1,5 @@
 if !exists('g:loaded_nerd_tree')
-    echoom "Not loaded nerd tree"
+    echo "Not loaded nerd tree"
     finish
 endif
 
