@@ -20,7 +20,8 @@ if has("nvim")
   " Plug 'kristijanhusak/defx-icons'
   " Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }  " file explore
   Plug 'neovim/nvim-lspconfig'  " lsp
-  Plug 'glepnir/lspsaga.nvim'  " lsp popup tips
+  " Plug 'glepnir/lspsaga.nvim'  " lsp popup tips; fixed by bellow
+  Plug 'jasonrhansen/lspsaga.nvim', {'branch': 'finder-preview-fixes'}
   Plug 'folke/lsp-colors.nvim' 
   Plug 'nvim-lua/completion-nvim'  " auto completion
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' } 
@@ -29,6 +30,8 @@ if has("nvim")
   Plug 'nvim-lua/plenary.nvim'
   Plug 'nvim-telescope/telescope.nvim'  " quick search
   Plug 'windwp/nvim-autopairs'  " auto pairs
+  " Plug 'karb94/neoscroll.nvim'   " speed slow
+  " bufferline ?
 endif
 
 call plug#end()

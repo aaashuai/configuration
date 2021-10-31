@@ -1,2 +1,2 @@
 
-autocmd FileType python,c,cpp TagbarOpen
+" autocmd FileType python,c,cpp TagbarOpen
