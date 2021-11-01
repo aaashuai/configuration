@@ -41,7 +41,6 @@ local on_attach = function(client, bufnr)
   --buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
   buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 
-  require'completion'.on_attach(client, bufnr)
     --protocol.SymbolKind = { }
   protocol.CompletionItemKind = {
     '', -- Text
@@ -72,6 +71,10 @@ local on_attach = function(client, bufnr)
   }
 
 end
+local capabilities = require('cmp_nvim_lsp').update_capabilities(
+  vim.lsp.protocol.make_client_capabilities()
+)
+
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   vim.lsp.diagnostic.on_publish_diagnostics, {
     -- disable virtual text
@@ -84,9 +87,12 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
   }
 )
 
-nvim_lsp.pyright.setup {
-    on_attach=on_attach
+nvim_lsp.pyright.setup{
+    on_attach=on_attach,
+    filetypes={"python"},
+    capabilities = capabilities
 }
+
 EOF
 
 

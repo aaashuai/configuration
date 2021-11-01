@@ -19,12 +19,15 @@ set autoindent
 set background=dark
 set nobackup
 set hlsearch
+set splitright
 set showcmd
 set cmdheight=1
 set laststatus=2
 set scrolloff=10
 set expandtab
 set signcolumn=yes
+set timeoutlen=250
+
 
 "let loaded_matchparen = 1
 set shell=fish

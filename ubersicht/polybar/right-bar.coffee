@@ -7,8 +7,9 @@ commands =
             "Versions/Current/Resources/airport -I | " +
             "sed -e \"s/^ *SSID: //p\" -e d"
   date   : "date +\"%a %d %b\""
-  cpu    : "ESC=`printf \"\e\"`; ps -A -r -o %cpu | awk '{s+=$1} END {printf(\"%05.2f\",s/8);}'"
+  cpu    : "ESC=`printf \"\e\"`; ps -A -r -o %cpu | awk '{s+=$1} END {printf(\"%5.2f\",s/8);}'"
   disk   : "df -H -l / | awk '/\\/.*/ { print $5 }'"
+  volume : "osascript -e 'output volume of (get volume settings)'"
 
 colors =
   black   : "#3B4252"
@@ -28,14 +29,22 @@ command: "echo " +
           "$(#{commands.wifi}):::" +
           "$(#{commands.date}):::" +
           "$(#{commands.cpu}):::" +
-          "$(#{commands.disk}):::"
+          "$(#{commands.disk}):::" + 
+          "$(#{commands.volume}):::"
 
 refreshFrequency: 60000
 
 render: () ->
   """
-  <link rel="stylesheet" href="./ubersicht-polybar-widget/assets/font-awesome/css/all.css" />
+  <link rel="stylesheet" href="./polybar/assets/font-awesome/css/all.css" />
   <div class="elements">
+    <div class="volume">
+      <span>
+        <span class="volume-icon"></span>
+        <span class="volume-output"></span>
+      </span>
+    </div>
+    <div><span class="spacer">|</span></div>
     <div class="cpu">
       <span>
         <i class="fa fa-chart-area"></i>
@@ -92,6 +101,7 @@ update: (output) ->
   date     = output[4]
   cpu      = output[5]
   disk     = output[6]
+  volume   = output[7]
 
   $(".battery-output") .text("#{battery}")
   $(".time-output")    .text("#{time}")
@@ -99,8 +109,10 @@ update: (output) ->
   $(".date-output")    .text("#{date}")
   $(".cpu-output")     .text("#{cpu}%")
   $(".disk-output")    .text("#{disk}")
+  $(".volume-output")  .text("#{volume}%")
 
   @handleBattery(Number(battery.replace(/%/g, "")), charging == '1')
+  @handleVolume(Number(volume))
 
 handleBattery: ( percentage, charging ) ->
   if charging
@@ -116,6 +128,12 @@ handleBattery: ( percentage, charging ) ->
 
   $(".battery-icon").html("<i class=\"fa #{batteryIcon} \"></i>")
 
+handleVolume: (volume) ->
+  volumeIcon = switch
+    when volume ==   0 then "fa-volume-off"
+    when volume <=  50 then "fa-volume-down"
+    when volume <= 100 then "fa-volume-up"
+  $(".volume-icon").html("<i class=\"fa #{volumeIcon}\"></i>")
 
 
 style: """
@@ -146,6 +164,8 @@ style: """
   .cpu
     color: #{colors.white}
   .disk
+    color: #{colors.white}
+  .volume
     color: #{colors.white}
 
   top: 0px

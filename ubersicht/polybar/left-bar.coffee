@@ -20,7 +20,7 @@ refreshFrequency: 500
 
 render: () ->
   """
-  <link rel="stylesheet" href="./ubersicht-polybar-widget/assets/font-awesome/css/all.css" />
+  <link rel="stylesheet" href="./polybar/assets/font-awesome/css/all.css" />
   <div class="spaces">
     <div>Default</div>
   </div>
