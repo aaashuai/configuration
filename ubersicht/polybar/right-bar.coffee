@@ -2,7 +2,6 @@ commands =
   battery: "pmset -g batt | egrep '([0-9]+\%).*' -o --colour=auto " +
             "| cut -f1 -d';'"
   charging: "pmset -g batt | grep -c 'AC'"
-  time   : "date +\"%H:%M\""
   wifi   : "/System/Library/PrivateFrameworks/Apple80211.framework/" +
             "Versions/Current/Resources/airport -I | " +
             "sed -e \"s/^ *SSID: //p\" -e d"
@@ -25,7 +24,6 @@ colors =
 command: "echo " +
           "$(#{commands.battery}):::" +
           "$(#{commands.charging}):::" +
-          "$(#{commands.time}):::" +
           "$(#{commands.wifi}):::" +
           "$(#{commands.date}):::" +
           "$(#{commands.cpu}):::" +
@@ -79,13 +77,6 @@ render: () ->
         <span class="date-output"></span>
       </span>
     </div>
-    <div><span class="spacer">|</span></div>
-    <div class="time">
-      <span>
-        <i class="fa fa-clock"></i>
-        <span class="time-output"></span>
-      </span>
-    </div>
   </div>
   """
 
@@ -96,15 +87,13 @@ update: (output) ->
 
   battery  = output[0]
   charging = output[1]
-  time     = output[2]
-  wifi     = output[3]
-  date     = output[4]
-  cpu      = output[5]
-  disk     = output[6]
-  volume   = output[7]
+  wifi     = output[2]
+  date     = output[3]
+  cpu      = output[4]
+  disk     = output[5]
+  volume   = output[6]
 
   $(".battery-output") .text("#{battery}")
-  $(".time-output")    .text("#{time}")
   $(".wifi-output")    .text("#{wifi}")
   $(".date-output")    .text("#{date}")
   $(".cpu-output")     .text("#{cpu}%")
@@ -154,8 +143,6 @@ style: """
     color: #{colors.white}
 
   .battery
-    color: #{colors.white}
-  .time
     color: #{colors.white}
   .wifi
     color: #{colors.white}
