@@ -1,5 +1,5 @@
 commands =
-  time   : "date +\"%H:%M:%S\""
+  time   : "date +\"%a %H:%M:%S\""
 
 colors =
   black   : "#3B4252"
@@ -58,7 +58,7 @@ style: """
     color: #{colors.white}
 
   top: 0px
-  right: 49% 
+  right: 48% 
   font-family: 'SauceCodePro Nerd Font'
   font-size: 14px
   font-smoothing: antialiasing

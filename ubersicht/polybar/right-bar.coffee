@@ -5,7 +5,7 @@ commands =
   wifi   : "/System/Library/PrivateFrameworks/Apple80211.framework/" +
             "Versions/Current/Resources/airport -I | " +
             "sed -e \"s/^ *SSID: //p\" -e d"
-  date   : "date +\"%a %d %b\""
+  date   : "date +\"%Y/%m/%d\""
   cpu    : "ESC=`printf \"\e\"`; ps -A -r -o %cpu | awk '{s+=$1} END {printf(\"%5.2f\",s/8);}'"
   disk   : "df -H -l / | awk '/\\/.*/ { print $5 }'"
   volume : "osascript -e 'output volume of (get volume settings)'"
