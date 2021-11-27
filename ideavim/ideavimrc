@@ -39,7 +39,7 @@ nmap <leader>x <Action>(GotoNextError)
 nmap <leader>X <Action>(GotoPreviousError)
 
 " Terminal
-nmap <leader>T <Action>(ActivateTerminalToolWindow)
+nmap <leader>t <Action>(ActivateTerminalToolWindow)
 
 " Building, Running and Debugging
 nmap <leader>ar <Action>(Run)
@@ -60,5 +60,12 @@ map <leader>b <Action>(ToggleLineBreakpoint)
 
 " rename
 map <leader>r <Action>(RenameElement)
+
+" delete without yanking
+nmap <leader>d "_d
+vmap <leader>d "_d
+
+" replace without yanking it
+vmap <leader>p "_dP
 
 
