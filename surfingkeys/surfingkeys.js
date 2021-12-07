@@ -1,6 +1,6 @@
 // customize
 // blacklist
-settings.blacklistPattern = /.*ironman.sensoro.io.*|.*localhost:58888.*/i;
+settings.blacklistPattern = /.*ironman.sensoro.io.*|.*localhost:58888.*|.*www.tapd.cn.*/i;
 // keyamp
 aceVimMap('jk', '<Esc>', 'insert');
 
