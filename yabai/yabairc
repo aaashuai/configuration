@@ -2,11 +2,11 @@
 
 # ====== Variables =============================
 
-gaps_top="10"
-gaps_bottom="10"
-gaps_left="10"
-gaps_right="10"
-gaps_inner="8"
+gaps_top="6"
+gaps_bottom="6"
+gaps_left="6"
+gaps_right="6"
+gaps_inner="6"
 
 
 # ====== Tiling settings =======================
@@ -27,11 +27,11 @@ yabai -m config mouse_action1               move
 yabai -m config mouse_action2               resize
 
 yabai -m config window_topmost              off
-yabai -m config window_opacity              off
+yabai -m config window_opacity              on
 yabai -m config window_shadow               float
 
 yabai -m config active_window_opacity       1.0
-yabai -m config normal_window_opacity       0.9
+yabai -m config normal_window_opacity       0.8
 yabai -m config split_ratio                 0.5
 yabai -m config auto_balance                off
 # named tabs
@@ -42,42 +42,16 @@ yabai -m space 4 --label plan
 
 # ====== Border settings =======================
 
-yabai -m config window_border               on
-yabai -m config window_border_width         8
+yabai -m config window_border               off
+yabai -m config window_border_width         6
 yabai -m config active_window_border_color   0xffc2808a
 yabai -m config normal_window_border_color   0xff88779b
-# yabai -m config active_window_border_color   0xffe9b84a
-# yabai -m config normal_window_border_color   0xff505050
-yabai -m space 1 --label web
-yabai -m space 2 --label code
-yabai -m space 3 --label term
-yabai -m space 4 --label plan
 
 
 # ====== Spacebar settings =======================
-yabai -m config external_bar all:24:0
+yabai -m config external_bar all:0:24
 # ====== List of rules =========================
-#  yabai -m rule --add label=chrome app="^Google Chrome$" space=2
-# yabai -m rule --add label=brave app="^Brave$" space=2
 
-# yabai -m rule --add label=iTerm2 app="^iTerm$" space=1
-
-# yabai -m rule --add label=wechat app="^微信$" space=4
-# yabai -m rule --add label=qq app="^微信" space=4
-
-# yabai -m rule --add label="Finder" app="^Finder$" title="(Co(py|nnect)|Move|Info|Pref)" manage=off border=off
-
-
-# yabai -m rule --add app="^PyCharm$" manage=off
 yabai -m rule --add app!="Obsidian|访达|石墨文档|Xcode|Code|Postman|Safari|Hyper|Emacs|GoLand|Code|Safari浏览器|Google Chrome|Firefox|Brave Browser|iTerm2|WPS Office|Sublime Text|draw.io|XMind" manage=off border=off
 yabai -m signal --add event=window_created app="^PyCharm|GoLand$" action='/Users/lin/configuration/yabai/s_float.sh'
-
-
-# 临时性的App 也就是manage=off不受到yabai平铺式的限制，之前怎么弹出来就怎么弹出来
-# otherApp='^(访达|Finder|Calendar|日历|System Preferences|系统偏好设置|1Password 7|Mail|微信|WeChat\
-# 	|QQ|企业微信|WeChat Work|预览|Foxmail|Sourcetree|Fork|Jira|Steam|Trello|Alfred Preferences\
-# 	|网易云音乐|Tencent Lemon Lite|Activity Monitor|SideNotes|邮件|网易MuMu|Charles|Ukelele\
-#  	|Karabiner-Elements|START|安装器|邮件|Skype for Business|HandShaker|Anki|归档实用工具|TeamViewer)$'
-# yabai -m rule --add app="${otherApp}" manage=off border=off
-
 
