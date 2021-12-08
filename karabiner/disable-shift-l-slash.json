@@ -1,0 +1,26 @@
+{
+  "title": "disable shift-l + slash",
+  "rules": [
+    {
+      "description": "disable shift + l + slash",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "slash",
+            "modifiers": {
+              "mandatory": [
+                "left_shift"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "slash"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
