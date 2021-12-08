@@ -16,7 +16,7 @@ command: "echo " +
           "$(#{commands.active}):::" +
           "$(#{commands.list}):::"
 
-refreshFrequency: 500
+refreshFrequency: 380
 
 render: () ->
   """
