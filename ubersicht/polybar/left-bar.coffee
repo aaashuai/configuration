@@ -1,7 +1,6 @@
 commands =
   active : "/usr/local/bin/yabai -m query --spaces --space | /usr/local/bin/jq '.index'"
   list   : "/usr/local/bin/yabai -m query --spaces | /usr/local/bin/jq -r '.[].index'"
-  monitor: ""
 
 colors =
   acqua:   "#00d787"
@@ -72,7 +71,7 @@ style: """
     color: #{colors.elegant}
 
 
-  top: 0px
+  bottom: 0px
   left: 10px
   font-family: 'Font Awesome 5 Free'
   font-size: 14px

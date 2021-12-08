@@ -1,6 +1,5 @@
 commands =
-  battery: "pmset -g batt | egrep '([0-9]+\%).*' -o --colour=auto " +
-            "| cut -f1 -d';'"
+  battery: "pmset -g batt | egrep '([0-9]+\%).*' -o --colour=auto | cut -f1 -d';'"
   charging: "pmset -g batt | grep -c 'AC'"
   wifi   : "/System/Library/PrivateFrameworks/Apple80211.framework/" +
             "Versions/Current/Resources/airport -I | " +
@@ -82,7 +81,7 @@ render: () ->
 
 update: (output) ->
 
-  # console.log(output)
+  console.log(output)
   output = output.split( /:::/g )
 
   battery  = output[0]
@@ -155,10 +154,10 @@ style: """
   .volume
     color: #{colors.white}
 
-  top: 0px
+  bottom: 0px
   right: 10px
-  font-family: 'SauceCodePro Nerd Font'
-  font-size: 14px
+  font-family: 'Jetbrains Mono'
+  font-size: 13px
   font-smoothing: antialiasing
   z-index: 0
 """

@@ -57,10 +57,10 @@ style: """
   .time
     color: #{colors.white}
 
-  top: 0px
+  bottom: 0px
   right: 48% 
-  font-family: 'SauceCodePro Nerd Font'
-  font-size: 14px
+  font-family: 'Jetbrains Mono'
+  font-size: 13px
   font-smoothing: antialiasing
   z-index: 0
 """
