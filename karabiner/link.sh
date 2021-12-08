@@ -14,3 +14,6 @@ do
 
     ln -s $(pwd)/${i} ${karabinerConfigPath}/${i}
 done
+
+echo done
+exit 0
