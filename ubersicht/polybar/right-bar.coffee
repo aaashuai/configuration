@@ -81,7 +81,7 @@ render: () ->
 
 update: (output) ->
 
-  console.log(output)
+  # console.log(output)
   output = output.split( /:::/g )
 
   battery  = output[0]
