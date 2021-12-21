@@ -1,16 +1,19 @@
 #!/usr/bin/env sh
 
-spacebar -m config position           top
+spacebar -m config position           bottom
 spacebar -m config height             24 
-spacebar -m config text_font         "Fira Code:Regular:13.0"
-spacebar -m config icon_font         "Font Awesome 5 Free:Regular:13.0"
+spacebar -m config text_font         "JetBrains Mono:Regular:14.0"
+spacebar -m config icon_font         "SauceCodePro Nerd Font:Regular:16.0"
+spacebar -m config title              off
 spacebar -m config background_color  0xff202020
 spacebar -m config foreground_color  0xffF5EEEE
-spacebar -m config space_icon_strip  I II III IV V VI VII VIII IX X
-spacebar -m config space_icon_strip            
+spacebar -m config space_icon_strip    ﮚ     ﮙ ﮙ ﮙ ﮙ
 spacebar -m config power_icon_strip   
 spacebar -m config space_icon        
-spacebar -m config clock_icon        
+spacebar -m config clock_icon         
 spacebar -m config clock_format      "%R %Y/%m/%d"
+spacebar -m config right_shell        off
+spacebar -m config right_shell_icon    
+spacebar -m config right_shell_command "whoami"
 
 echo "spacebar configuration loaded.."
