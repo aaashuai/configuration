@@ -34,7 +34,7 @@ yabai -m config window_opacity              on
 yabai -m config window_shadow               float
 
 yabai -m config active_window_opacity       1.0
-yabai -m config normal_window_opacity       0.9
+yabai -m config normal_window_opacity       1.0 
 yabai -m config split_ratio                 0.5
 yabai -m config auto_balance                off
 # named tabs
@@ -55,6 +55,6 @@ yabai -m config normal_window_border_color   0xff88779b
 yabai -m config external_bar all:0:24
 # ====== List of rules =========================
 
-yabai -m rule --add app!="Obsidian|石墨文档|Xcode|Code|Postman|Safari|Hyper|Emacs|GoLand|Code|Safari浏览器|Google Chrome|Firefox|Brave Browser|iTerm2|WPS Office|Sublime Text|draw.io|XMind" manage=off border=off
+yabai -m rule --add app!="Microsoft Edge|Logseq|Obsidian|石墨文档|Xcode|Code|Postman|Safari|Hyper|Emacs|GoLand|Code|Safari浏览器|Google Chrome|Firefox|Brave Browser|iTerm2|WPS Office|Sublime Text|draw.io|XMind" manage=off border=off
 yabai -m signal --add event=window_created app="^PyCharm|GoLand$" action='/Users/lin/configuration/yabai/s_float.sh'
 

@@ -4,7 +4,6 @@ let mapleader = " "
 set easymotion
 set surround
 set multiple-cursors
-set incsearch
 set rnu
 set nu
 set NERDTree
@@ -32,18 +31,21 @@ nmap <leader>g <Action>(GotoDeclaration)
 nmap <leader>u <Action>(FindUsages)
 nmap <leader>f <Action>(GotoFile)
 nmap <leader>C <Action>(GotoClass)
-nmap <leader>s <Action>(GotoSymbol)
+" nmap <leader>s <Action>(GotoSymbol)
 
 " Errors
 nmap <leader>x <Action>(GotoNextError)
 nmap <leader>X <Action>(GotoPreviousError)
 
-" Terminal
+" Termina
 nmap <leader>t <Action>(ActivateTerminalToolWindow)
 
 " Building, Running and Debugging
 nmap <leader>ar <Action>(Run)
 nmap <leader>r <Action>(ContextRun)
+
+" breakpoint
+map <leader>b <Action>(ToggleLineBreakpoint)
 nmap <leader>ad <Action>(Debug)
 nmap <leader>d <Action>(ContextDebug)
 nmap <leader>i <Action>(StepInto)
@@ -55,9 +57,6 @@ nmap ss <Plug>(easymotion-s2)
 " multi cursor
 nmap <A-n> <C-n>
 
-" breakpoint
-map <leader>b <Action>(ToggleLineBreakpoint)
-
 " rename
 map <leader>r <Action>(RenameElement)
 
@@ -67,5 +66,3 @@ vmap <leader>d "_d
 
 " replace without yanking it
 vmap <leader>p "_dP
-
-

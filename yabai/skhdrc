@@ -80,19 +80,19 @@ shift + cmd + alt - r :
 
 # Make window native fullscreen
 alt - f         : yabai -m window --toggle zoom-fullscreen
-shift + alt - f : yabai -m window --toggle native-fullscreen
+# shift + alt - f : yabai -m window --toggle native-fullscreen
 
 # toggle window split type
 # alt - e : yabai -m window --toggle split
 
 # increase window size 竖直方向才能用top  水平方向才能用left
-shift + alt - d : yabai -m window --resize left:-20:0
-shift + alt - w : yabai -m window --resize top:0:-20
+# shift + alt - d : yabai -m window --resize left:-20:0
+# shift + alt - w : yabai -m window --resize top:0:-20
 
 
 # decrease window size
-shift + alt - a : yabai -m window --resize left:20:0
-shift + alt - s : yabai -m window --resize top:0:20
+# shift + alt - a : yabai -m window --resize left:20:0
+# shift + alt - s : yabai -m window --resize top:0:20
 
 
 # fast focus desktop(切换空间焦点)
