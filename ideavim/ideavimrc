@@ -52,7 +52,7 @@ nmap <leader>i <Action>(StepInto)
 nmap <leader>o <Action>(StepOver)
 
 " easymotion
-nmap ss <Plug>(easymotion-s2)
+nmap ss <Action>(AceAction)
 
 " multi cursor
 nmap <A-n> <C-n>
