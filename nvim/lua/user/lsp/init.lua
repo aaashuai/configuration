@@ -4,7 +4,7 @@ if not ok then
 end
 
 require "user.lsp.lsp-installer"
---require("lsp.handlers").setup()
---require("lsp.null-ls")
+require("user.lsp.handlers").setup()
+require "user.lsp.null-ls"
 
 
