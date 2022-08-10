@@ -61,7 +61,8 @@ return packer.startup(function(use)
 	use({ "nvim-treesitter/nvim-treesitter", commit = "518e27589c0463af15463c9d675c65e464efc2fe" })
 
 	-- others
-	use("kylechui/nvim-surround")
+	use({ "kylechui/nvim-surround", commit = "328f20c1d0e39ed30df3fc6334c093e8e8b72453" })
+	use({ "windwp/nvim-autopairs", commit = "fa6876f832ea1b71801c4e481d8feca9a36215ec" }) -- Autopairs, integrates with both cmp and treesitter
 
 	if is_bootstrap then
 		require("packer").sync()

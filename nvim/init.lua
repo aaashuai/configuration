@@ -7,3 +7,5 @@ require("user.cmp")
 require("user.surround")
 require("user.illuminate")
 require("user.treesitter")
+require("user.autopairs")
+
