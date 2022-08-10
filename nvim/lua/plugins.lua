@@ -32,12 +32,24 @@ packer.init {
 
 
 return packer.startup(function(use)
-    use 'wbthomason/packer.nvim'                                                    -- Package manager
+    use {'wbthomason/packer.nvim', commit="afab89594f4f702dc3368769c95b782dbdaeaf0a"}                                                    -- Package manager
 
-    use 'tpope/vim-fugitive'                                                        -- Git commands in nvim
-    use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }       -- Add git related info in the signs columns and popups
+    -- git
+    use {'tpope/vim-fugitive', commit="66a921bbe38bea19f6b581c8a56d5a8a41209e35"}                                                        -- Git commands in nvim
+    use { 'lewis6991/gitsigns.nvim', requires = {
+            'nvim-lua/plenary.nvim', commit="31807eef4ed574854b8a53ae40ea3292033a78ea" 
+        }, commit = "9c3ca027661136a618c82275427746e481c84a4e" }       -- Add git related info in the signs columns and popups
 
-    use 'mjlbach/onedark.nvim'                                                      -- Theme inspired by Atom
+    -- colorschema
+    use {'mjlbach/onedark.nvim', commit = 'e5e6b1e66ade328c201374ec3c9d0f9b4be23394'}                                                      -- Theme inspired by Atom
+
+
+    -- lsp
+    use { "neovim/nvim-lspconfig", commit = "148c99bd09b44cf3605151a06869f6b4d4c24455" } -- enable LSP
+    use { "williamboman/nvim-lsp-installer", commit = "e9f13d7acaa60aff91c58b923002228668c8c9e6" } -- simple to use language server installer
+    -- use { "jose-elias-alvarez/null-ls.nvim", commit = "ff40739e5be6581899b43385997e39eecdbf9465" } -- for formatters and linters
+    -- use { "RRethy/vim-illuminate", commit = "c82e6d04f27a41d7fdcad9be0bce5bb59fcb78e5" }
+
 
   if is_bootstrap then
     require('packer').sync()
