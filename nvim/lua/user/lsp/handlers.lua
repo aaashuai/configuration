@@ -45,10 +45,18 @@ M.setup = function()
   vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
     border = "rounded",
   })
+  vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+    vim.lsp.diagnostic.on_publish_diagnostics, {
+        virtual_text = false,
+    }
+  )
 
-  vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-    border = "rounded",
-  })
+
+  vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
+      vim.lsp.handlers.signature_help, {
+        border = "rounded",
+      }
+  )
 end
 
 local function lsp_keymaps(bufnr)
@@ -75,9 +83,9 @@ local function lsp_keymaps(bufnr)
   imap("<C-p>", vim.lsp.buf.signature_help, '[I]Signature Documentation')
 
   --diagnostic
-  nmap('<leader>le', vim.diagnostic.open_float, 'show line diagnostic')
-  nmap('<leader>lx', vim.diagnostic.goto_next, 'Next Diagnostic')
-  nmap('<leader>lX', vim.diagnostic.goto_prev, 'Next Diagnostic')
+  nmap('<leader>e', vim.diagnostic.open_float, 'show line diagnostic')
+  nmap('<leader>x', vim.diagnostic.goto_next, 'Next Diagnostic')
+  nmap('<leader>X', vim.diagnostic.goto_prev, 'Next Diagnostic')
 
   nmap("<leader>lf", vim.lsp.buf.formatting, 'Foramt language')
   --nmap("<leader>li", LspInfo, 'LSP Info')
