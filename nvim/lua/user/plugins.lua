@@ -37,12 +37,16 @@ return packer.startup(function(use)
     -- git
     use {'tpope/vim-fugitive', commit="66a921bbe38bea19f6b581c8a56d5a8a41209e35"}                                                        -- Git commands in nvim
     use { 'lewis6991/gitsigns.nvim', requires = {
-            'nvim-lua/plenary.nvim', commit="31807eef4ed574854b8a53ae40ea3292033a78ea" 
+            'nvim-lua/plenary.nvim', commit="31807eef4ed574854b8a53ae40ea3292033a78ea"
         }, commit = "9c3ca027661136a618c82275427746e481c84a4e" }       -- Add git related info in the signs columns and popups
 
     -- colorschema
     use {'mjlbach/onedark.nvim', commit = 'e5e6b1e66ade328c201374ec3c9d0f9b4be23394'}                                                      -- Theme inspired by Atom
 
+    -- cmp plugins
+    use { "hrsh7th/nvim-cmp", commit = "df6734aa018d6feb4d76ba6bda94b1aeac2b378a" } -- The completion plugin
+    use { "hrsh7th/cmp-nvim-lsp", commit = "affe808a5c56b71630f17aa7c38e15c59fd648a8" }
+    use { "hrsh7th/cmp-nvim-lua", commit = "d276254e7198ab7d00f117e88e223b4bd8c02d21" }
 
     -- lsp
     use { "neovim/nvim-lspconfig", commit = "148c99bd09b44cf3605151a06869f6b4d4c24455" } -- enable LSP
