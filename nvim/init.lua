@@ -1,7 +1,7 @@
-require "user.options"
-require "user.maps"
-require "user.plugins"
-require "user.gits"
-require "user.lsp"
-require "user.cmp"
-require "user.surround"
+require("user.options")
+require("user.maps")
+require("user.plugins")
+require("user.gits")
+require("user.lsp")
+require("user.cmp")
+require("user.surround")

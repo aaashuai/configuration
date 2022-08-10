@@ -14,8 +14,8 @@ keymap("", "<Space>", "<Nop>", opts)
 --   term_mode = "t",
 --   command_mode = "c",
 
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ' '
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 
 -- Normal --
 
@@ -27,4 +27,3 @@ keymap("n", "<C-a>", "gg<S-v>G")
 -- Insert --
 -- Press jk fast to enter
 keymap("i", "jk", "<ESC>", opts)
-
