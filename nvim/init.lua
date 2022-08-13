@@ -9,4 +9,6 @@ require("user.surround")
 require("user.illuminate")
 require("user.treesitter")
 require("user.autopairs")
+require("user.dap")
+
 
