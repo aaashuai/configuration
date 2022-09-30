@@ -13,24 +13,9 @@ set timeoutlen =190
 inoremap jk <Esc>`^
 noremap ,w :w<cr>
 
-" Tabs
-nnoremap [b <Action>(PreviousTab)
-nnoremap ]b <Action>(NextTab)
-
-" h left, l right, k up, j down
-nmap <leader>h <c-w>h
-nmap <leader>l <c-w>l
-nmap <leader>k <c-w>k
-nmap <leader>j <c-w>j
-
 " Navigation
-nmap <leader>h <Action>(Back)
-nmap <leader>l <Action>(Forward)
-nmap <leader>L <Action>(RecentLocations)
-nmap <leader>g <Action>(GotoDeclaration)
-nmap <leader>u <Action>(FindUsages)
 nmap <leader>f <Action>(GotoFile)
-nmap <leader>C <Action>(GotoClass)
+nmap <leader>c <Action>(GotoClass)
 " nmap <leader>s <Action>(GotoSymbol)
 
 " Errors
@@ -55,10 +40,15 @@ nmap <leader>o <Action>(StepOver)
 nmap ss <Action>(AceAction)
 
 " multi cursor
-nmap <A-n> <C-n>
+" start
+nmap mc <A-n>  
+" skip next match
+nmap mx <A-x> 
+" remove current match and go back to pervious one
+nmap mp <A-p>
 
 " rename
-map <leader>r <Action>(RenameElement)
+" map <leader>r <Action>(RenameElement)
 
 " delete without yanking
 nmap <leader>d "_d

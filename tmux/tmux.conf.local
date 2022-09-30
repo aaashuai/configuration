@@ -285,4 +285,4 @@ set -g mouse off
 # bind key
 unbind C-b
 set -g prefix C-a
-bind C-a send-prefx
+bind C-a send-prefix

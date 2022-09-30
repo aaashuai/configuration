@@ -22,7 +22,7 @@ vim.g.maplocalleader = " "
 -- Navigate buffers
 keymap("n", "<S-l>", ":bnext<CR>", opts)
 keymap("n", "<S-h>", ":bprevious<CR>", opts)
-keymap("n", "<C-a>", "gg<S-v>G")
+-- keymap("n", "<C-a>", "gg<S-v>G")
 
 -- Insert --
 -- Press jk fast to enter

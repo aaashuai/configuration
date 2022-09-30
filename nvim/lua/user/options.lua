@@ -45,7 +45,7 @@ vim.o.wrap = false
 -- always show the sign column
 vim.o.signcolumn = "yes"
 -- keep x lines in the end when scroll down and scroll left
-vim.o.scrolloff = 999
+vim.o.scrolloff = 8
 vim.o.sidescrolloff = 8
 -- show typing command on status bar
 vim.o.showcmd = true
