@@ -3,7 +3,7 @@
 spacebar -m config position           bottom
 spacebar -m config height             24 
 spacebar -m config text_font         "JetBrains Mono:Regular:14.0"
-spacebar -m config icon_font         "SauceCodePro Nerd Font:Regular:16.0"
+spacebar -m config icon_font         "SauceCodePro Nerd Font Mono:Regular:17.0"
 spacebar -m config title              off
 spacebar -m config background_color  0xff202020
 spacebar -m config foreground_color  0xffF5EEEE

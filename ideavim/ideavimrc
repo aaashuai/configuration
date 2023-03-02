@@ -13,6 +13,9 @@ set timeoutlen =190
 inoremap jk <Esc>`^
 noremap ,w :w<cr>
 
+" Swap
+nmap <leader>s <Action>(MoveEditorToOppositeTabGroup)
+
 " Navigation
 nmap <leader>f <Action>(GotoFile)
 nmap <leader>c <Action>(GotoClass)

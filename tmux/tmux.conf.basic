@@ -1,0 +1,20 @@
+# switch pane
+bind-key k select-pane -U
+bind-key j select-pane -D
+bind-key h select-pane -L
+bind-key l select-pane -R
+
+# resize pane
+bind -r H resize-pane -L 2
+bind -r J resize-pane -D 2
+bind -r K resize-pane -U 2
+bind -r L resize-pane -R 2
+
+# create new window with current path
+# set -g default-path "$PWD"
+# bind % set default-path "" \; split-window -h \; set -u default-path
+# bind '"' set default-path "" \; split-window -v \; set -u default-path
+
+set -g base-index 1           # start windows numbering at 1
+setw -g pane-base-index 1     # make pane numbering consistent with windows
+bind ] run-shell "tmux show-buffer | awk 'NR>1{print PREV} {PREV=$0} END{printf(\"%s\",$0)}' | tmux load-buffer - \; tmux paste-buffer"

@@ -1,5 +1,8 @@
 # opens iTerm2
-# lctrl + cmd - t: open /Applications/Hyper.app
+lctrl + cmd - t: open /Applications/Alacritty.app
+lctrl + cmd - s: open '/Applications/Sublime Text.app'
+lctrl + cmd - b: open '/Applications/Brave Browser.app'
+lctrl + cmd - p: open '/Applications/ChatGPT.app'
 
 
 # Show system statistics
@@ -80,6 +83,7 @@ shift + cmd + alt - r :
 
 # Make window native fullscreen
 alt - f         : yabai -m window --toggle zoom-fullscreen
+alt + shift - f         : yabai -m window --toggle zoom-parent
 # shift + alt - f : yabai -m window --toggle native-fullscreen
 
 # toggle window split type
