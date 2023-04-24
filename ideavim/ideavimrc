@@ -31,6 +31,7 @@ nmap <leader>t <Action>(ActivateTerminalToolWindow)
 " Building, Running and Debugging
 nmap <leader>ar <Action>(Run)
 nmap <leader>r <Action>(ContextRun)
+nmap <C-w>z <Action>(EditSourceInNewWindow)
 
 " breakpoint
 map <leader>b <Action>(ToggleLineBreakpoint)
