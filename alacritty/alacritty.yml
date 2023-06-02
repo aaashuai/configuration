@@ -493,12 +493,12 @@ debug:
 #
 # You can set shell.program to the path of your favorite shell, e.g. /bin/fish.
 # Entries in shell.args are passed unmodified as arguments to the shell.
-shell:
-  program: /bin/zsh
-  args:
-    - -l
-    - -c
-    - "tmux ls -F '#{session_name}' | fzf  --reverse --height ${FZF_TMUX_HEIGHT:-40%} --bind=enter:replace-query+print-query | read session && tmux attach -t ${session:-default} || tmux new -s ${session:-default}"
+# shell:
+#   program: /bin/zsh
+    # args:
+    #   - -l
+    #   - -c
+    #   - "tmux ls -F '#{session_name}' | fzf  --reverse --height ${FZF_TMUX_HEIGHT:-40%} --bind=enter:replace-query+print-query | read session && tmux attach -t ${session:-default} || tmux new -s ${session:-default}"
 
 # vim: nospell
 # color scheme
