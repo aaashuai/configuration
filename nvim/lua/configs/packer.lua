@@ -24,6 +24,16 @@ return require('packer').startup(function(use)
   use('mbbill/undotree')
   use('tpope/vim-fugitive')
   use {
+      "zbirenbaum/copilot.lua",
+      cmd = "Copilot",
+      event = "InsertEnter",
+      config = function()
+          require("copilot").setup({})
+      end,
+  }
+
+
+  use {
 	  'VonHeikemen/lsp-zero.nvim',
 	  branch = 'v1.x',
 	  requires = {
@@ -40,10 +50,10 @@ return require('packer').startup(function(use)
 		  {'hrsh7th/cmp-nvim-lsp'},
 		  {'hrsh7th/cmp-nvim-lua'},
 
-		  -- Snippets
-		  {'L3MON4D3/LuaSnip'},
-		  {'rafamadriz/friendly-snippets'},
-	  }
+          -- Snippets
+          {'L3MON4D3/LuaSnip'},
+          {'rafamadriz/friendly-snippets'},
+      }
   }
 
 

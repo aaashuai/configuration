@@ -7,6 +7,7 @@ lsp.ensure_installed({
   'eslint',
   'pyright',
   'rust_analyzer',
+  'jdtls'
 })
 
 -- Fix Undefined global 'vim'
