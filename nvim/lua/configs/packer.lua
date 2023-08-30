@@ -23,14 +23,14 @@ return require('packer').startup(function(use)
   use('ThePrimeagen/harpoon')
   use('mbbill/undotree')
   use('tpope/vim-fugitive')
-  use {
-      "zbirenbaum/copilot.lua",
-      cmd = "Copilot",
-      event = "InsertEnter",
-      config = function()
-          require("copilot").setup({})
-      end,
-  }
+  -- use {
+  --     "zbirenbaum/copilot.lua",
+  --     cmd = "Copilot",
+  --     event = "InsertEnter",
+  --     config = function()
+  --         require("copilot").setup({})
+  --     end,
+  -- }
 
 
   use {
@@ -55,6 +55,15 @@ return require('packer').startup(function(use)
           {'rafamadriz/friendly-snippets'},
       }
   }
-
+  use({
+      "kylechui/nvim-surround",
+      tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+      config = function()
+          require("nvim-surround").setup({
+              -- Configuration here, or leave empty to use defaults
+          })
+      end
+  })
+  use {'~/.local/share/nvim/tabby/clients/vim', as = 'tabby', enabled = true}
 
 end)

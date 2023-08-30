@@ -5,11 +5,14 @@ yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 
 # ====== Variables =============================
 
-gaps_top="0"
-gaps_bottom="0"
-gaps_left="0"
-gaps_right="0"
-gaps_inner="6"
+gaps_top="2"
+gaps_bottom="2"
+gaps_left="2"
+gaps_right="2"
+gaps_inner="5"
+active_border_color=FFD662
+deactive_border_color=234E70
+
 
 
 # ====== Tiling settings =======================
@@ -45,17 +48,17 @@ yabai -m space 4 --label plan
 
 # ====== Border settings =======================
 
-yabai -m config window_border               off
-yabai -m config window_border_width         6
-yabai -m config active_window_border_color   0xffc2808a
-yabai -m config normal_window_border_color   0xff88779b
+yabai -m config window_border               on
+yabai -m config window_border_width         3
+yabai -m config active_window_border_color   0xff${active_border_color}
+yabai -m config normal_window_border_color   0xff${deactive_border_color}
 
 
 # ====== Spacebar settings =======================
 yabai -m config external_bar all:0:24
 # ====== List of rules =========================
 
-yabai -m rule --add app!="Sublime Text|Tor Browser|DataGrip|Microsoft Edge|Alacritty|Logseq|GoLand|Google Chrome|Firefox|Brave Browser|iTerm2" manage=off border=off
+yabai -m rule --add app!="kitty|Sublime Text|Tor Browser|DataGrip|Microsoft Edge|Alacritty|Logseq|GoLand|Google Chrome|Firefox|Brave Browser|iTerm2" manage=off border=off
 yabai -m signal --add event=window_created app="DataGrip|PyCharm|GoLand" action='/Users/lin/configuration/yabai/s_float.sh'
 
 # yabai -m rule --add app="DataGrip|Alacritty|PyCharm|GoLand|iTerm2" opacity=0.9

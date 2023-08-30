@@ -2,7 +2,7 @@
   "title": "enhance-hjkl",
   "rules": [
     {
-      "description": "use command + h as left arrow",
+      "description": "use shift+ctrl+command + h as left arrow",
       "manipulators": [
         {
           "type": "basic",
@@ -10,7 +10,9 @@
             "key_code": "h",
             "modifiers": {
               "mandatory": [
-                "left_command"
+                "left_shift",
+		"left_control",
+		"left_command"
 
               ]
             }
@@ -24,7 +26,7 @@
       ]
     },
     {
-      "description": "use command + j as down_arrow",
+      "description": "use shift+ctrl+command + j as down_arrow",
       "manipulators": [
         {
           "type": "basic",
@@ -32,6 +34,8 @@
             "key_code": "j",
             "modifiers": {
               "mandatory": [
+                "left_shift",
+		"left_control",
 		"left_command"
 
               ]
@@ -45,7 +49,7 @@
         }
       ]
     },{
-      "description": "use command + k as up_arrow",
+      "description": "use shift+ctrl+command + k as up_arrow",
       "manipulators": [
         {
           "type": "basic",
@@ -53,6 +57,8 @@
             "key_code": "k",
             "modifiers": {
               "mandatory": [
+                "left_shift",
+		"left_control",
 		"left_command"
 
               ]
@@ -66,7 +72,7 @@
         }
       ]
     },{
-      "description": "use command + l as right_arrow",
+      "description": "use shift+ctrl+command + l as right_arrow",
       "manipulators": [
         {
           "type": "basic",
@@ -74,6 +80,8 @@
             "key_code": "l",
             "modifiers": {
               "mandatory": [
+                "left_shift",
+		"left_control",
 		"left_command"
 
               ]

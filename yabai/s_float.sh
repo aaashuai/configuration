@@ -4,7 +4,7 @@ if [ $debug ]; then
    echo 1 $YABAI_WINDOW_ID
 fi
 
-: ${SLEEP_SECOND:=1}
+: ${SLEEP_SECOND:=0.5}
 title=$(yabai -m query --windows --window ${YABAI_WINDOW_ID} | jq .title | cut -d [ -f 2 | cut -d ] -f 1)
 if [ $debug ];then
   echo 2 ${title}
@@ -39,9 +39,10 @@ fi
 
 
 if [ -e $absolute ];then
-if [ $debug ]; then
-      echo 5 do $absolute 
-fi
-  yabai -m window ${YABAI_WINDOW_ID} --toggle float
+    if [ $debug ]; then
+          echo 5 do $absolute 
+    fi
+
+    yabai -m window ${YABAI_WINDOW_ID} --toggle border --toggle float
 fi
 
