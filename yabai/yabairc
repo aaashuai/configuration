@@ -58,7 +58,8 @@ yabai -m config normal_window_border_color   0xff${deactive_border_color}
 yabai -m config external_bar all:0:24
 # ====== List of rules =========================
 
-yabai -m rule --add app!="kitty|Sublime Text|Tor Browser|DataGrip|Microsoft Edge|Alacritty|Logseq|GoLand|Google Chrome|Firefox|Brave Browser|iTerm2" manage=off border=off
+yabai -m rule --add app!="Sublime Text|Tor Browser|DataGrip|Microsoft Edge|Alacritty|Logseq|GoLand|Google Chrome|Firefox|Brave Browser|iTerm2" manage=off border=off
+yabai -m rule --add app="kitty" manage=off border=on grid="6:5:1:1:3:4" 
 yabai -m signal --add event=window_created app="DataGrip|PyCharm|GoLand" action='/Users/lin/configuration/yabai/s_float.sh'
 
 # yabai -m rule --add app="DataGrip|Alacritty|PyCharm|GoLand|iTerm2" opacity=0.9

@@ -498,7 +498,7 @@ shell:
   args:
     - -l
     - -c
-    - "tmux ls -F '#{session_name}' | fzf  --reverse --height ${FZF_TMUX_HEIGHT:-40%} --bind=enter:replace-query+print-query | read session && tmux attach -t ${session:-default} || tmux new -s ${session:-default}"
+    - "gtop"
 
 # vim: nospell
 # color scheme
