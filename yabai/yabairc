@@ -9,56 +9,50 @@ gaps_top="3"
 gaps_bottom="3"
 gaps_left="3"
 gaps_right="3"
-gaps_inner="3"
+gaps_inner="6"
 active_border_color=FFD662
 deactive_border_color=234E70
 
 
-
 # ====== Tiling settings =======================
 
-yabai -m config layout                      bsp
+yabai -m config \
+	layout                      bsp \
+	config top_padding                 "${gaps_top}" \
+	config bottom_padding              "${gaps_bottom}" \
+	config left_padding                "${gaps_left}" \
+	config right_padding               "${gaps_right}" \
+	config window_gap                  "${gaps_inner}" \
+	config mouse_follows_focus         off \
+	config focus_follows_mouse         off \
+	config mouse_modifier              fn \
+	config mouse_action1               move \
+	config mouse_action2               resize \
+	config window_topmost              off \
+	config window_opacity              on \
+	config window_shadow               float \
+	config active_window_opacity       1.0 \
+	config normal_window_opacity       1.0 \
+	config split_ratio                 0.5 \
+	config auto_balance                off \
+	window_border               on                           \
+	window_border_width         3                            \
+	active_window_border_color   0xff${active_border_color}  \
+	normal_window_border_color   0xff${deactive_border_color}\
+	external_bar all:0:24;
 
-yabai -m config top_padding                 "${gaps_top}"
-yabai -m config bottom_padding              "${gaps_bottom}"
-yabai -m config left_padding                "${gaps_left}"
-yabai -m config right_padding               "${gaps_right}"
-yabai -m config window_gap                  "${gaps_inner}"
+echo "yabai configuration loaded.."
 
-yabai -m config mouse_follows_focus         off
-yabai -m config focus_follows_mouse         off
-
-yabai -m config mouse_modifier              fn
-yabai -m config mouse_action1               move
-yabai -m config mouse_action2               resize
-
-yabai -m config window_topmost              off
-yabai -m config window_opacity              on
-yabai -m config window_shadow               float
-
-yabai -m config active_window_opacity       1.0
-yabai -m config normal_window_opacity       1.0
-yabai -m config split_ratio                 0.5
-yabai -m config auto_balance                off
-# named tabs
 yabai -m space 1 --label web
 yabai -m space 2 --label code
 yabai -m space 3 --label term
 yabai -m space 4 --label plan
 
-# ====== Border settings =======================
-
-yabai -m config window_border               on
-yabai -m config window_border_width         3
-yabai -m config active_window_border_color   0xff${active_border_color}
-yabai -m config normal_window_border_color   0xff${deactive_border_color}
-
-
-# ====== Spacebar settings =======================
-yabai -m config external_bar all:0:24
-# ====== List of rules =========================
-
-yabai -m rule --add app!="Tor Browser|DataGrip|Microsoft Edge|Alacritty|Logseq|GoLand|Google Chrome|Firefox|Brave Browser|iTerm2" manage=off border=off
-yabai -m rule --add app="Sublime Text|kitty" manage=off border=on grid="6:5:1:1:3:4" opacity=0.8
+yabai -m rule --add app!="Safari浏览器|Tor Browser|DataGrip|Microsoft Edge|Alacritty|Logseq|GoLand|Google Chrome|Firefox|Brave Browser|iTerm2" manage=off # border=off
+# yabai -m rule --add app="Logseq" manage=on opacity=0.9 # border=on 
+yabai -m rule --add app="Sublime Text" manage=off grid="6:5:1:1:3:4"  # border=on 
+yabai -m rule --add app="kitty" manage=off grid="6:5:1:1:3:4" opacity=0.9 # border=on 
 # todo rebalance kitty when switching space
 yabai -m signal --add event=window_created app="DataGrip|PyCharm|GoLand" action='/Users/lin/configuration/yabai/s_float.sh'
+yabai -m rule --add app=".*" layer=normal
+

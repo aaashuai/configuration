@@ -3,6 +3,7 @@ let mapleader = " "
 " ======== plugins ==========
 set easymotion
 set surround
+set multicursor
 set multiple-cursors
 set rnu
 set nu
@@ -42,14 +43,6 @@ nmap <leader>o <Action>(StepOver)
 
 " easymotion
 nmap ss <Action>(AceAction)
-
-" multi cursor
-" start
-nmap mc <A-n>  
-" skip next match
-nmap mx <A-x> 
-" remove current match and go back to pervious one
-nmap mp <A-p>
 
 " rename
 " map <leader>r <Action>(RenameElement)

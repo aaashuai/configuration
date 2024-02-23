@@ -38,11 +38,10 @@ else
 fi
 
 
-if [ -e $absolute ];then
+if [[ -e $absolute ]] ; then
     if [ $debug ]; then
-          echo 5 do $absolute 
+	  echo 5 do $absolute 
     fi
 
-    yabai -m window ${YABAI_WINDOW_ID} --toggle border --toggle float
+    yabai -m window ${YABAI_WINDOW_ID} --toggle float  # --toggle border 
 fi
-

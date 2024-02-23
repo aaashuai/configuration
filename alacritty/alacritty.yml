@@ -495,10 +495,10 @@ debug:
 # Entries in shell.args are passed unmodified as arguments to the shell.
 shell:
   program: /bin/zsh
-  args:
-    - -l
-    - -c
-    - "gtop"
+    # args:
+    #   - -l
+    #   - -c
+    #   - "gtop"
 
 # vim: nospell
 # color scheme
