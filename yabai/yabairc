@@ -18,27 +18,22 @@ gaps_inner="12"
 
 yabai -m config \
 	layout                      bsp \
-	config top_padding                 "${gaps_top}" \
-	config bottom_padding              "${gaps_bottom}" \
-	config left_padding                "${gaps_left}" \
-	config right_padding               "${gaps_right}" \
-	config window_gap                  "${gaps_inner}" \
-	config mouse_follows_focus         off \
-	config focus_follows_mouse         off \
-	config mouse_modifier              fn \
-	config mouse_action1               move \
-	config mouse_action2               resize \
-	config window_topmost              off \
-	config window_opacity              on \
-	config window_shadow               float \
-	config active_window_opacity       1.0 \
-	config normal_window_opacity       1.0 \
-	config split_ratio                 0.5 \
-	config auto_balance                off \
-	window_border               on                           \
-	window_border_width         3                            \
-	active_window_border_color   0xff${active_border_color}  \
-	normal_window_border_color   0xff${deactive_border_color}\
+	top_padding                 "${gaps_top}" \
+	bottom_padding              "${gaps_bottom}" \
+	left_padding                "${gaps_left}" \
+	right_padding               "${gaps_right}" \
+	window_gap                  "${gaps_inner}" \
+	mouse_follows_focus         off \
+	focus_follows_mouse         off \
+	mouse_modifier              fn \
+	mouse_action1               move \
+	mouse_action2               resize \
+	window_opacity              on \
+	window_shadow               float \
+	active_window_opacity       1.0 \
+	normal_window_opacity       1.0 \
+	split_ratio                 0.5 \
+	auto_balance                off \
 	external_bar all:0:24;
 
 echo "yabai configuration loaded.."
