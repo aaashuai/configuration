@@ -12,6 +12,10 @@ set timeoutlen =190
 
 " ======= key binding =========
 inoremap jk <Esc>`^
+inoremap jK <Esc>`^
+inoremap Jk <Esc>`^
+inoremap JK <Esc>`^
+
 noremap ,w :w<cr>
 
 " Swap

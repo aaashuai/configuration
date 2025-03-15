@@ -24,7 +24,7 @@ font_family      FiraCode
 #:     italic_font      Operator Mono Book Italic
 #:     bold_italic_font Operator Mono Medium Italic
 
-font_size 17
+font_size 17.0
 
 #: Font size (in pts)
 
@@ -430,7 +430,7 @@ font_size 17
 #: programs, including websites open in your browser can read the
 #: contents of the system clipboard.
 
-paste_actions filter
+# paste_actions quote-urls-at-prompt
 
 #: A comma separated list of actions to take when pasting text into
 #: the terminal. The supported paste actions are:
@@ -1249,7 +1249,8 @@ confirm_os_window_close 0
 #: Advanced {{{
 
 # shell /bin/zsh -l -c "tmux ls -F '#{session_name}' | fzf  --reverse --height ${FZF_TMUX_HEIGHT:-40%} --bind=enter:replace-query+print-query | read session && tmux attach -t ${session:-default} || tmux new -s ${session:-default}"
-shell /bin/zsh -l -c "tmux attach -t ${session:-tmp} || tmux new -s ${session:-tmp}"
+# shell /bin/zsh -l -c "tmux attach -t ${session:-tmp} || tmux new -s ${session:-tmp}"
+# shell /bin/bash
 
 #: The shell program to execute. The default value of . means to use
 #: whatever shell is set as the default shell for the current user.
@@ -2394,9 +2395,3 @@ shell /bin/zsh -l -c "tmux attach -t ${session:-tmp} || tmux new -s ${session:-t
 #: }}}
 
 include ./theme.conf
-
-
-# BEGIN_KITTY_THEME
-# Catppuccin-Mocha
-# include current-theme.conf
-# END_KITTY_THEME

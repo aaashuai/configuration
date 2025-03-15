@@ -147,7 +147,7 @@ ctrl + shift - 6 : yabai -m window --space 6
 
 # pin to top
 # alt + ctrl - p : yabai -m window --toggle topmost # yabai V6.0 before
-alt + ctrl - p : yabai -m query --windows --window | jq -re '.["sub-layer"]' | xargs -I {} bash -c 'if [ "{}" == "normal" ]; then yabai -m window --layer above; elif [ "{}" == "above" ]; then yabai -m window --layer normal; fi'
+alt + ctrl - p : yabai -m query --windows --window | jq -re '.["sub-layer"]' | xargs -I {} bash -c 'if [ "{}" == "normal" ]; then yabai -m window --sub-layer above; elif [ "{}" == "above" ]; then yabai -m window --sub-layer normal; fi'
 
 # show desktop
 lctrl + cmd - e : yabai -m space --toggle show-desktop
