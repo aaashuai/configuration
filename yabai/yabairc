@@ -43,6 +43,7 @@ yabai -m space 4 --label plan
 
 yabai -m rule --add app!="Code|Vivaldi|Safari浏览器|Tor Browser|DataGrip|Microsoft Edge|Alacritty|Logseq|GoLand|Google Chrome|Firefox|Brave Browser|iTerm2" manage=off # border=off
 yabai -m rule --add app="Sublime Text" manage=off grid="6:5:1:1:3:4" # border=on 
+yabai -m rule --add app="Zed" manage=off grid="6:5:1:1:3:4"
 yabai -m rule --add app="kitty" manage=off grid="6:5:1:1:3:4" opacity=0.9 # border=on 
 
 # todo rebalance kitty when switching space
@@ -52,5 +53,5 @@ yabai -m rule --add app!="asldkxz" sub-layer="normal"
 # https://github.com/FelixKratz/JankyBorders
 # active_border_color=FFD662
 # deactive_border_color=234E70
-borders active_color=0xffFFD662 inactive_color=0xff234E70 width=8.0 &
+# borders active_color=0xffFFD662 inactive_color=0xff234E70 width=6.0 &
 echo "yabai configuration loaded.."
