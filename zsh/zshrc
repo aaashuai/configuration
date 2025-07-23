@@ -1,0 +1,249 @@
+# debug
+# zmodload zsh/zprof
+# ################ antigen ###############
+# source ~/.config/antigen.zsh
+# antigen use oh-my-zsh
+# 
+# antigen bundle <<EOBUNDLES
+#   autojump
+#   vi-mode
+#   git
+#   fzf
+#   # pyenv
+#   pip
+#   kubectl
+#   docker
+#   docker-compose
+#   # helm
+#   # terraform
+#   tmux
+#   extract
+#   gitignore
+#   Aloxaf/fzf-tab
+#   zsh-users/zsh-autosuggestions
+#   zsh-users/zsh-syntax-highlighting
+#   zsh-users/zsh-completions
+#   dracula/zsh
+#   dracula/zsh-syntax-highlighting
+# EOBUNDLES
+# 
+# antigen theme ys
+# antigen apply
+# ################ antigen ###############
+# ################ zsh ###############
+export ZSH=$HOME/.oh-my-zsh
+
+# ZSH_THEME="ys"
+ZSH_THEME="bira"
+HIST_STAMPS="yyyy-mm-dd"
+plugins=(z git zsh-autosuggestions zsh-syntax-highlighting vi-mode docker docker-compose)
+source $ZSH/oh-my-zsh.sh
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
+
+# ################ zsh ###############
+#
+# fzf
+export FZF_DEFAULT_COMMAND='fd --type f --strip-cwd-prefix --hidden --follow --exclude .git --exclude __pycache__'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+# init
+# eval "$(starship init zsh)"
+# ---
+setopt PROMPT_SUBST
+show_conda_env() {
+  if [[ $(pyenv local 2>/dev/null) == *"conda"* ]]; then
+     VENV=$CONDA_DEFAULT_ENV
+  else
+      VENV=$VIRTUAL_ENV
+  fi
+  if [[ -n "$VENV" && -n "$DIRENV_DIR" ]]; then
+      echo "($(basename $VENV))"
+  fi
+}
+
+PS1='$(show_conda_env)'$PS1
+eval "$(direnv hook zsh)"
+# ---
+
+# [[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# replaced by plugin-zshfl
+# autoload -Uz compinit
+# for dump in ~/.zcompdump(N.mh+24); do
+#   compinit
+# done
+# compinit -C
+autoload -Uz compinit
+if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
+  compinit
+else
+  compinit -C
+fi
+
+
+# baisc settings
+# setopt hist_ignore_space
+export HISTSIZE=20000
+export SAVEHIST=$HISTSIZE
+
+set no_share_history
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+
+
+bindkey '^j' autosuggest-accept
+unsetopt nomatch
+
+# exports
+export CPPFLAGS="-I/usr/local/opt/luajit-openresty/include"
+export LDFLAGS="-L/usr/local/opt/luajit-openresty/lib"
+# region go env
+export GOROOT=/usr/local/go
+export GOPATH=~/goPath
+export GOPROXY=https://goproxy.cn,direct
+# endregion go env
+export HOMEBREW_NO_AUTO_UPDATE=true
+export PATH="$PATH:/usr/local/bin:$GOROOT/bin:$GOPATH/bin:$HOME/.local/bin:/usr/local/opt/luajit-openresty/bin:$HOME/.poetry/bin:$HOME/.cargo/bin:/Applications/Sublime Text.app/Contents/SharedSupport/bin:/Users/lin/tools/apache-jmeter-5.5/bin"
+export VISUAL=/usr/local/bin/nvim
+
+
+# alias
+alias cgrep="grep --color=always"
+alias all_proxy="export https_proxy=http://127.0.0.1:3031 http_proxy=http://127.0.0.1:3031 all_proxy=socks5://127.0.0.1:3030"
+alias no_proxy="export all_proxy= https_proxy= http_proxy="
+
+alias ak8s="telepresence quit && telepresence --kubeconfig ~/.kube/config connect"
+alias cip="ifconfig |grep 'inet 10.0'|awk '{print \$2}'|tr -d '\n'|pbcopy && echo '$(pbpaste) copied'"
+alias cod="conda deactivate"
+alias cp='cp -v'
+alias ctags="`brew --prefix`/bin/ctags"
+alias ezsh="vim ~/.zshrc"
+alias gcmd="git branch --merged|egrep 'fix|feat|opt|update|log|doc|tools|revert'|xargs git branch -d"
+alias gitstats="bash /Users/lin/bash_cli/gitstats/gitstats"
+alias gitbook='docker run --name="gitbook" --rm -v "$PWD":/gitbook -p 4000:4000 -p 35729:35729 billryan/gitbook gitbook'
+alias gopwd="export GOPATH=$GOPATH:`pwd`"
+alias grpe="grep"
+alias igrep="grep -i"
+alias ll="exa -l -g --icons"
+alias lla="ll -a"
+alias ln='ln -v'
+alias mkdir='mkdir -v'
+alias mv='mv -v'
+alias notify='terminal-notifier -title "tmux: $(tmux display-message -p \"#S\")" -message '
+alias rm="trash -v"
+alias rustscan='docker run -it --rm --name rustscan rustscan/rustscan:1.10.0'
+alias sjupyter="nohup jupyter-lab --allow-root --no-browser --NotebookApp.token='' --NotebookApp.password='' --ip 0.0.0.0 --port 8888 /Users/lin/Documents/CS/jupyter/SENSORO > /tmp/jupyter.log 2>&1 &"
+#alias sed="gsed"
+alias szsh="source ~/.zshrc"
+alias tat='tmux attach -t'
+alias tnew='tmux new -s'
+alias today="date '+%Y%m%d'"
+alias vim=nvim
+alias dockerstopall="docker ps |grep -v 'CONTA' |awk '{print \$1}' |xargs docker stop "
+alias tmp="cd ~/tmp"
+
+
+# functions
+ca() {
+    conda activate $1
+}
+
+calc(){
+  expr $1 $2 $3|tr -d '\n'|pbcopy
+  echo $(pbpaste)
+}
+
+cj2d(){
+    content=$1
+    echo $1|jq .|sed 's/: false/: False/g'|sed 's/: true/: True/g'|sed 's/: null/: None/g'|pbcopy
+}
+
+hl(){
+    egrep --color -i "$1|$"
+}
+
+# initpy(){
+#     echo "[tool.black]
+#     line-length = 119
+#     target-version = ['py37']
+#     include = '\.pyi?$'
+#     " > ./pyproject.toml
+#     cat > .envrc<<EOF
+# # check if python version is set in current dir
+# if [ -f ".python-version" ] ; then
+#     if [ ! -d ".venv" ] ; then
+#         echo "Installing virtualenv for \$(python -V)"
+#         # if we didn't install \`py2venv\` for python 2.x, we would need to use
+#         # \`virtualenv\`, which you would have to install separately.
+#         python -m venv .venv
+#     fi
+#     echo "Activating \$(python -V) virtualenv"
+#     source .venv/bin/activate
+#     # announce python version and show the path of the current python in \${PATH}
+#     echo "Virtualenv has been activated for \$(python -V)"
+#     echo "python path: \$(which python)"
+# fi
+# EOF
+# 
+# }
+
+j2d(){
+  content=$1
+  echo $1|jq .
+}
+
+mkcd(){
+    mkdir $1;cd $1;
+}
+
+tf(){
+    tail -f $1
+}
+
+cpath(){
+    realpath $1|tr -d '\n'|pbcopy
+}
+
+function workup {
+    tmux ls -F '#{session_name}' |
+    fzf  --reverse --height ${FZF_TMUX_HEIGHT:-40%} --bind=enter:replace-query+print-query |
+    read session && tmux attach -t ${session:-default} || tmux new -s ${session:-default}
+}
+
+
+# pnpm
+export PNPM_HOME="/Users/lin/Library/pnpm"
+export PATH="$PNPM_HOME:$PATH"
+# pnpm end
+
+# nvm
+export NVM_DIR="$HOME/.nvm"
+loadnvm(){
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+}
+
+# nvm end
+
+# source others
+[ -f ~/.sensoro.zsh ] && . ~/.sensoro.zsh
+[ -f ~/.private.zsh ] && . ~/.private.zsh
+[ -f ~/.mck.zsh ] && . ~/.mck.zsh
+
+
+# bun completions
+[ -s "/Users/lin/.oh-my-zsh/completions/_bun" ] && source "/Users/lin/.oh-my-zsh/completions/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# uv
+eval "$(uv generate-shell-completion zsh)"
+eval "$(uvx --generate-shell-completion zsh)"
+
+# debug end of line
+# zprof
+# echo "this is zshrc"

@@ -1,5 +1,5 @@
 # opens iTerm2
-lctrl + cmd - o: open /Applications/kitty.app
+lctrl + cmd - o: open '/Applications/kitty.app'
 lctrl + cmd - s: open '/Applications/Sublime Text.app'
 lctrl + cmd - b: open '/Applications/Brave Browser.app'
 
